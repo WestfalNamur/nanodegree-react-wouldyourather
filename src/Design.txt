@@ -54,18 +54,18 @@ actions:
 		- setAuthedUser (id)
 		- setAuthedUser ()
 	questions:
-		- receive questions (from API)
+		- receiveQuestions (from API)
 		- addQuestion (question)
-		- addQuestionVote (authedUser, questionId, option)
+		- addQuestionVote (authedUser, qid, answer)
 	users:
-		- recieve users (from API)
+		- recieveUsers (from API)
 		- addUserQuestion (question)
-		- addUserAnswer (authedUser, questionId, option)
+		- addUserAnswer (authedUser, qid, answer)
 	shared:
 		- handleInitialData ()
-		- handleAnswer (authedUser, questionId, option)
+		- handleAnswer (authedUser, qid, answer)
 			- dispatches (addQuestionVote, addUserAnswer)
-		- handleAddQuestion (question)
+		- handleAddQuestion (optionOneText, optionTwoText, author)
 			- dispatches (addQuestion, addUserQuestion)
 
 reducers:
@@ -80,6 +80,19 @@ reducers:
 		- RECEVIE_USERS (adds users to state)
 		- ADD_USER_QUESTIONS (add question.id to user.votes)
 		- ADD_USER_ANSWER (add question.id to user.answers)
+
+passed data:
+	- ids (questionId or authedUserId)
+	- answer (choosen answer)
+	- authedUser
+	- question (optionOneText, optionTwoText, author; formated during API call _saveQuestion)
+
+### API
+	- _getQuestion
+	- _getUsers
+	- _saveQuestion
+	- _saveQuestionAnswer
+
 
 ### Container
 - @root
