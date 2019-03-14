@@ -9,7 +9,6 @@ class Question extends Component {
     const { pathname } = this.props.location
     const realivePath = pathname.split('/').pop()
     const answered = userAnswerIds.includes(realivePath)
-    console.log(questionIds.includes(realivePath))
 
     return (
       <div className='Question'>
