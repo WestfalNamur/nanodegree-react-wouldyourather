@@ -5,6 +5,7 @@ import { setAuthedUser } from './authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 // tylermcginnis 
+// sarahedo
 
 export function handleInitialData () {
   return (dispatch) => {

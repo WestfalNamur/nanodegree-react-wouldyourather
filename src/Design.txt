@@ -9,19 +9,18 @@
 
 -  The user should be able to toggle between his/her answered and unanswered polls on the home 			page, which is located at the root.
 
-- Each polling question should link to the details of that poll. The details of each poll should be 	available at questions/:question_id.
+- Each polling question should link to the details of that poll. The details of each poll should be 	available at questions/:question_id. Passes down questionId and authedUser
+	- Poll-unaswered:	
+	    - Text “Would You Rather”;
+	    - Avatar of the user who posted the polling question; and
+	    - Two options.
+	    - Users can only vote once per poll
 
-- Poll-unaswered:	
-    - Text “Would You Rather”;
-    - Avatar of the user who posted the polling question; and
-    - Two options.
-    - Users can only vote once per poll
-
-- Poll-answered:
-    - Text of the option;
-    - Number of people who voted for that option; and
-    - Percentage of people who voted for that option.
-    - The option selected by the logged-in user should be clearly marked. 
+	- Poll-answered:
+	    - Text of the option;
+	    - Number of people who voted for that option; and
+	    - Percentage of people who voted for that option.
+	    - The option selected by the logged-in user should be clearly marked. 
 
 - 404 page
 	 (Please keep in mind that newly created polls will not be accessible at their url because of the way the backend is set up in this application.)

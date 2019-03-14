@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import QuestionAnswered from './QuestionAnswered'
+import QuestionUnAnswered from './QuestionUnAnswered'
 
 class Question extends Component {
   render() {
-    const { userAnswerIds } = this.props
+    const { userAnswerIds, authedUser, questionIds } = this.props
     const { pathname } = this.props.location
     const realivePath = pathname.split('/').pop()
     const answered = userAnswerIds.includes(realivePath)
+    console.log(questionIds.includes(realivePath))
 
     return (
-      <div>
-        { answered &&
-          <p> already answered </p>
-        }
-        { !answered &&
-          <p> not yet answered </p>
+      <div className='Question'>
+        {questionIds.includes(realivePath)
+          ? <div>
+              { answered &&
+                <QuestionAnswered qid={realivePath} authedUser={authedUser}/>
+              }
+              { !answered &&
+                <QuestionUnAnswered qid={realivePath} authedUser={authedUser}/>
+              }
+            </div>
+          : <h1>Question does not exist</h1>
         }
       </div>
     )
@@ -23,7 +31,9 @@ class Question extends Component {
 
 function mapStateToProps ({ questions, authedUser, users }) {
   return {
-    userAnswerIds: Object.keys(users[authedUser].answers)
+    userAnswerIds: Object.keys(users[authedUser].answers),
+    questionIds: Object.keys(questions),
+    authedUser: authedUser
   }
 }
 
