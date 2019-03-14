@@ -3,6 +3,7 @@ import '../utils/App.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
+import AddQuestion from './AddQuestion'
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
           ? null
           : <div>
               <Dashboard />
+              <AddQuestion />
             </div>
         }
       </div>

@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Dashboard extends Component {
-  state = {
-    toggle: false
+  constructor(props) {
+    super(props)
+    this.state ={toggle: false}
+    this.handleToggleAnswers = this.handleToggleAnswers.bind(this)
+  }
+
+  handleToggleAnswers() {
+    this.setState(state => ({
+     toggle: !state.toggle 
+    }))
   }
 
   render() {
     const { answeredIds, unAnsweredIds } = this.props
-    const { toggle } = this.state
+    const { toggle, handleToggleAnswers } = this.state
 
     return (
       <div>
@@ -31,6 +39,9 @@ class Dashboard extends Component {
                 ))}
             </ul>
           }
+      <button onClick={this.handleToggleAnswers}>
+        {toggle ? 'Show unanswered question' : 'Show answered question'}
+      </button>
       </div>
     )
   }

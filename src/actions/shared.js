@@ -23,6 +23,9 @@ export function handleAddQuestion(optionOneText, optionTwoText, author) {
   return (dispatch) => {
     dispatch(showLoading())
     return saveQuestion({ optionOneText, optionTwoText, author })
+      .catch((e) => {
+        console.warn('Error in handling handleAddQuestion: ', e)
+      })
       .then((question) => {
         dispatch(addQuestion(question))
         dispatch(addUserQuestion(question))
@@ -35,6 +38,9 @@ export function handleAnswer(authedUser, qid, answer) {
   return (dispatch) => {
     dispatch(showLoading())
     return saveQuestionAnswer({ authedUser, qid, answer })
+      .catch((e) => {
+        console.warn('Error in handling handleAddQuestion: ', e)
+      })
       .then(() => {
         dispatch(addQuestionVote(authedUser, qid, answer))
         dispatch(addUserAnswer(authedUser, qid, answer))
