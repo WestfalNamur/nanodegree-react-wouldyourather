@@ -1,0 +1,105 @@
+##### Would you rather? #####
+### App Functionality (taken from Project Overview)
+- Login / Logout
+	This could be as simple as having a login box that appears at the root of the application that lets the user select a name from the list of existing users. Once the user logs in, the home page should be shown.
+
+- Show logged in user on every page (simply in Navbar).
+
+- When navigating somewhere by entering the address in the address bar,the user is asked to sign in 	and then the requested page is shown.
+
+-  The user should be able to toggle between his/her answered and unanswered polls on the home 			page, which is located at the root.
+
+- Each polling question should link to the details of that poll. The details of each poll should be 	available at questions/:question_id.
+
+- Poll-unaswered:	
+    - Text “Would You Rather”;
+    - Avatar of the user who posted the polling question; and
+    - Two options.
+    - Users can only vote once per poll
+
+- Poll-answered:
+    - Text of the option;
+    - Number of people who voted for that option; and
+    - Percentage of people who voted for that option.
+    - The option selected by the logged-in user should be clearly marked. 
+
+- 404 page
+	 (Please keep in mind that newly created polls will not be accessible at their url because of the way the backend is set up in this application.)
+
+- add question
+	- Show "Would you rahter"
+	- form for optionOne and optionTwo
+	- Submit button
+
+- leadboard
+	- ordered in descending order based on the sum of the number of questions they’ve asked and 		the number of questions they’ve answered.
+	- each entry consists of: 
+		- User’s name;
+    	- User’s picture;
+    	- Number of questions the user asked; and
+    	- Number of questions the user answered
+
+- Navigation via Navbar
+	The user should be able to navigate to the leaderboard, to a specific question, and to the form that allows the user to create a new poll both from within the app and by typing in the address into the address bar.
+
+
+### store
+store-object:
+	- authedUser
+	- questions
+	- users
+
+actions:
+	authedUser:
+		- setAuthedUser (id)
+		- setAuthedUser ()
+	questions:
+		- receive questions (from API)
+		- addQuestion (question)
+		- addQuestionVote (authedUser, questionId, option)
+	users:
+		- recieve users (from API)
+		- addUserQuestion (question)
+		- addUserAnswer (authedUser, questionId, option)
+	shared:
+		- handleInitialData ()
+		- handleAnswer (authedUser, questionId, option)
+			- dispatches (addQuestionVote, addUserAnswer)
+		- handleAddQuestion (question)
+			- dispatches (addQuestion, addUserQuestion)
+
+reducers:
+	authedUser:
+		- SET_AUTHED_USER (sets authedUser to id)
+		- UNSET_AUTHED_USER (sets authedUset to null)
+	questions:
+		- RECEVIE_QUESTIONS (adds questions to state)
+		- ADD_QUESTIONS (adds questions to state)
+		- ADD_QUESTION_VOTE (adds authedUser to question vote)
+	users:
+		- RECEVIE_USERS (adds users to state)
+		- ADD_USER_QUESTIONS (add question.id to user.votes)
+		- ADD_USER_ANSWER (add question.id to user.answers)
+
+### Container
+- @root
+	- login scree
+		- access to authedUser
+		- dispatches setAuthedUser
+- '/'
+	- home
+		- acces to authedUser and questions
+		- shows answered or unanswered questions (toggle option)
+		- links to question-polls
+- '/questions/question:id'
+	- QuestionPoll
+		- access to authedUser, question, users
+		- dispatches(handleAnswer)
+		- renders depending if authedUser answered or did not answered the question
+- '/addquestion'
+	- AddQuestion
+		- acces to authedUser
+		- dispatches(handleAddQuestion)
+- '/leadbaord'
+	- Leadboard
+		- access to users

@@ -3,6 +3,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+npm start
+npm install
+
+### Install
+
+clone the repo, cd into it, run $npm install. Now you can use the app by running npm start
+
+### Dependencies
+
+react-redux redux 
+redux-thunk 
+react-router-dom
+react-redux-loading
 
 ### `npm start`
 
