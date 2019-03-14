@@ -16,6 +16,9 @@ react-redux redux
 redux-thunk 
 react-router-dom
 react-redux-loading
+props-types
+react-bootstrap bootstrap
+react-router-bootstrap
 
 ### `npm start`
 

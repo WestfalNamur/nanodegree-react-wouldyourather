@@ -39,9 +39,9 @@ class Dashboard extends Component {
                 ))}
             </ul>
           }
-      <button onClick={this.handleToggleAnswers}>
-        {toggle ? 'Show unanswered question' : 'Show answered question'}
-      </button>
+        <button onClick={this.handleToggleAnswers}>
+          {toggle ? 'Show unanswered question' : 'Show answered question'}
+        </button>
       </div>
     )
   }
