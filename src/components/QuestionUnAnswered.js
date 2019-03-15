@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswer } from '../actions/shared'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import '../utils/App.css'
 
 class QuestionUnAnswered extends Component {
   constructor(props) {
@@ -38,15 +37,21 @@ class QuestionUnAnswered extends Component {
 
     return (
       <div className='center'>
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-            <Card.Title> {author.name} asks:</Card.Title>
-            <Card.Text>Would you rather </Card.Text>
-            <Button type="Button" onClick={this.handleOptionOne}>{question.optionOne.text}</Button>
-            <Button type="Button" onClick={this.handleOptionTwo}>{question.optionTwo.text}</Button>
-            <Button type="Button" onClick={this.handleSubmitAnswer}>Submit answer</Button>
-          </Card.Body>
-        </Card>
+        <div className='card-container'>
+          <img src={author.avatarURL}/>
+          <h5> {author.name} asks:</h5>
+          <p>Would you rather </p>
+          <div className='options'>
+            <button className='button-answer' type="button" 
+              onClick={this.handleOptionOne}>{question.optionOne.text}</button>
+            <button className='button-answer' type="button" 
+              onClick={this.handleOptionTwo}>{question.optionTwo.text}</button>
+          </div>
+          {this.state.answer !== ''
+            ? <button className='submit' type="button" onClick={this.handleSubmitAnswer}>
+                Submit: {question[this.state.answer].text}</button>
+            : null }
+        </div>
       </div>
     )
   }

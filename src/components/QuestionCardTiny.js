@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Card from 'react-bootstrap/Card'
 
 class QuestionCardTiny extends Component {
   render() {
@@ -8,7 +7,6 @@ class QuestionCardTiny extends Component {
     console.log(author.avatarURL)
 
     return (
-      <div>
         <div className="card">
           <div className='card-container'>
             <img className='avatar' src={author.avatarURL}/>
@@ -16,7 +14,6 @@ class QuestionCardTiny extends Component {
             <p>Would you rather {question.optionOne.text} or ... </p>
           </div>
         </div>
-      </div>
     )
   }
 }
@@ -32,3 +29,4 @@ function mapStateToProps ({ questions, users }, { qid }) {
 }
 
 export default connect(mapStateToProps)(QuestionCardTiny)
+
