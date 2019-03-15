@@ -8,7 +8,7 @@ class QuestionCardTiny extends Component {
 
     return (
       <div>
-        <Card style={{ width: '18rem' }}>
+        <Card border="primary" className="text-center p-3" style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title>
               {author.name} asked:

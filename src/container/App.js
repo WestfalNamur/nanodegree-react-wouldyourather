@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from '../components/Dashboard'
 import AddQuestion from './AddQuestion'
-import { Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NoMatch from '../components/NoMatch'
 import Question from './Question'
 import Login from './Login'
@@ -21,20 +21,22 @@ class App extends Component {
     const { loading } = this.props
 
     return (
-      <div className="App">
-        <LoadingBar />
-        <Navigationbar />
-        {loading === true
-          ? <Login />
-          : <Switch>
-              <Route exact path='/' component={Dashboard} />
-              <Route exact path='/addquestion' component={AddQuestion} />
-              <Route exact path='/leadboard' component={Leadboard} />
-              <Route exact path='/questions/:id' component={Question} />
-              <Route component={NoMatch} />
-            </Switch>
-        }
-      </div>
+      <Router> 
+        <div className="App">
+          <LoadingBar />
+          <Navigationbar />
+          {loading === true
+            ? <Login />
+            : <Switch>
+                <Route exact path='/' component={Dashboard} />
+                <Route exact path='/addquestion' component={AddQuestion} />
+                <Route exact path='/leadboard' component={Leadboard} />
+                <Route exact path='/questions/:id' component={Question} />
+                <Route component={NoMatch} />
+              </Switch>
+          }
+       </div>
+      </Router> 
     );
   }
 }

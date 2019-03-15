@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import '../utils/App.css'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 import QuestionCardTiny from './QuestionCardTiny'
 
 class Dashboard extends Component {
@@ -21,29 +23,28 @@ class Dashboard extends Component {
     const { toggle, handleToggleAnswers } = this.state
 
     return (
-      <div>
-        <h1>Dashboard</h1>
+      <div className='center'>
+        <Button variant='outline-primary' onClick={this.handleToggleAnswers}>
+          {toggle ? 'Show unanswered question' : 'Show answered question'}
+        </Button>
         {toggle 
           ? answeredIds &&
-            <ListGroup>
+            <ListGroup variant="flush">
                {answeredIds.map((id) => (
-                  <ListGroup.Item key={id}>
+                  <ListGroup.Item className='center' key={id}>
                     <QuestionCardTiny qid={id}/>
                   </ListGroup.Item>
                 ))}
             </ListGroup>
           : unAnsweredIds &&
-            <ListGroup>
+            <ListGroup variant="flush">
                {unAnsweredIds.map((id) => (
-                  <ListGroup.Item key={id}>
+                  <ListGroup.Item className='center' key={id}>
                     <QuestionCardTiny qid={id}/>
                   </ListGroup.Item>
                 ))}
             </ListGroup>
           }
-        <button onClick={this.handleToggleAnswers}>
-          {toggle ? 'Show unanswered question' : 'Show answered question'}
-        </button>
       </div>
     )
   }
