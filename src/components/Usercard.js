@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../utils/App.css'
 
 export default function Usercard(props) {
@@ -9,7 +9,7 @@ export default function Usercard(props) {
   return (
     <div className='usercard'>
       <div className='user-avatar'>
-        <img className='avatar' src={user.avatarURL}/>
+        <img className='avatar' alt='' src={user.avatarURL}/>
       </div>
       <div className='body'>
         <h5>{user.name}</h5>

@@ -9,7 +9,7 @@ class QuestionCardTiny extends Component {
     return (
         <div className="card">
           <div className='card-container'>
-            <img className='avatar' src={author.avatarURL}/>
+            <img className='avatar' alt='' src={author.avatarURL}/>
             <h5>{author.name} asked:</h5>
             <p>Would you rather {question.optionOne.text} or ... </p>
           </div>

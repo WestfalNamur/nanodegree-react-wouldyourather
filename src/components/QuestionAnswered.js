@@ -13,11 +13,11 @@ class QuestionAnswered extends Component {
     return (
       <div className='center'>
         <div className='card-container'>
-          <img src={author.avatarURL}/>
+          <img src={author.avatarURL} alt=''/>
           <h5>{author.name} asks:</h5>
           <h6>Would you rather {question.optionOne.text} or {question.optionTwo.text}?</h6>
-          <p> Results: {question.optionOne.text} got {optionOne} votes
-              while {question.optionTwo.text} got {optionTwo} votes.
+          <p> Results: "{question.optionOne.text}" got {optionOne} votes
+              while "{question.optionTwo.text}" got {optionTwo} votes.
           </p>
           <p>Giving a ratio of: {ratioOne}% to {ratioTwo}%</p>
           <p>You voted: {userAnswer}.</p>
@@ -35,7 +35,6 @@ function mapStateToProps ({ questions, users, authedUser }, {qid}) {
   return {
     question: question,
     author: author,
-    authedUser: authedUser,
     userAnswer: userAnswer
   }
 }

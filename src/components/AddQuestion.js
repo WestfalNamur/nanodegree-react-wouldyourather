@@ -7,7 +7,7 @@ class AddQuestion extends Component {
     super(props)
     this.state = {
       optionOneText: '',
-      optionTwoText: ''     
+      optionTwoText: '',    
     }
     this.handleOptionOneInput = this.handleOptionOneInput.bind(this)
     this.handleOptionTwoInput = this.handleOptionTwoInput.bind(this)
@@ -37,11 +37,11 @@ class AddQuestion extends Component {
         <form onSubmit={this.handleSubmitQuestion}>
           <h5>Would you rather: </h5>
           <div>
-            <input type='text' value={this.state.value} onChange={this.handleOptionOneInput} />
+            <input type='text' value={this.state.optionOneText} onChange={this.handleOptionOneInput} />
           </div>
           <h5>or</h5>
           <div>
-            <input type='text' value={this.state.value} onChange={this.handleOptionTwoInput} />
+            <input type='text' value={this.state.optionTwoText} onChange={this.handleOptionTwoInput} />
           </div>
           {this.state.optionOneText.length > 0 && this.state.optionTwoText.length > 0 
             && <input type="submit"  value="Submit" />}

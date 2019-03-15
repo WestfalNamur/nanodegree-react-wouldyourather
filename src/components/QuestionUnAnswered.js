@@ -38,7 +38,7 @@ class QuestionUnAnswered extends Component {
     return (
       <div className='center'>
         <div className='card-container'>
-          <img src={author.avatarURL}/>
+          <img src={author.avatarURL} alt=''/>
           <h5> {author.name} asks:</h5>
           <p>Would you rather </p>
           <div className='options'>

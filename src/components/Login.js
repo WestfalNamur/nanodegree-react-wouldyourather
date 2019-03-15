@@ -24,7 +24,6 @@ class Login extends Component {
 
     return (
       <form onSubmit={this.handleLogin}>
-        <lable>
           Select a user: 
           <select value={this.state.selectedUser} onChange={this.handleChange}>
             <option value='' disabled>choose a user</option>
@@ -32,7 +31,6 @@ class Login extends Component {
               <option key={user.id} value={user.id}>{user.name}</option>
             ))}
           </select>
-        </lable>
         <button type="button" disabled={!this.state.selectedUser} onClick={this.handleLogin}
         >Login</button>
       </form>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink, Link, withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
 import '../utils/App.css'
 
@@ -19,7 +19,7 @@ class NavigationBar extends Component {
     const { authedUser } = this.props
 
     return (
-      <nav class="topnav">
+      <nav className="topnav">
         <NavLink className='nav-link' to='/' >Home </NavLink>
         <NavLink className='nav-link' to='/addquestion' >Add Question </NavLink>
         <NavLink className='nav-link' to='/leadboard' >Leadboard </NavLink>
