@@ -15,10 +15,10 @@ class Question extends Component {
         {questionIds.includes(realivePath)
           ? <div>
               { answered &&
-                <QuestionAnswered qid={realivePath} authedUser={authedUser}/>
+                <QuestionAnswered qid={realivePath} />
               }
               { !answered &&
-                <QuestionUnAnswered qid={realivePath} authedUser={authedUser}/>
+                <QuestionUnAnswered qid={realivePath} authedUser={authedUser} />
               }
             </div>
           : <h1>Question does not exist</h1>
