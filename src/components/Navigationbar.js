@@ -19,12 +19,12 @@ class NavigationBar extends Component {
     const { authedUser } = this.props
 
     return (
-      <nav className='nav'>
+      <nav class="topnav">
         <NavLink className='nav-link' to='/' >Home </NavLink>
         <NavLink className='nav-link' to='/addquestion' >Add Question </NavLink>
         <NavLink className='nav-link' to='/leadboard' >Leadboard </NavLink>
         {authedUser && 
-          <p to='#' > Signed in as: {authedUser.name} </p>}
+          <p className='authedUSer-info' href="#" > Signed in as: {authedUser.name} </p>}
         {authedUser && 
           <button variant="outline-primary" onClick={this.handleLogout}
           >Logout</button>}

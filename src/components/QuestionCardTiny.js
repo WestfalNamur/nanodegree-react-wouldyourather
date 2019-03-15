@@ -5,19 +5,17 @@ import Card from 'react-bootstrap/Card'
 class QuestionCardTiny extends Component {
   render() {
     const { question, author } = this.props
+    console.log(author.avatarURL)
 
     return (
       <div>
-        <Card border="primary" className="text-center p-3" style={{ width: '18rem' }}>
-          <Card.Body>
-            <Card.Title>
-              {author.name} asked:
-            </Card.Title>
-            <Card.Text> 
-              Would you rather {question.optionOne.text} or ...
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <div className="card">
+          <div className='card-container'>
+            <img className='avatar' src={author.avatarURL}/>
+            <h5>{author.name} asked:</h5>
+            <p>Would you rather {question.optionOne.text} or ... </p>
+          </div>
+        </div>
       </div>
     )
   }
