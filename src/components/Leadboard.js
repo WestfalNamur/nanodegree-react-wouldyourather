@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Usercard from './Usercard'
 
 class Leadboard extends Component {
   render() {
@@ -11,7 +12,7 @@ class Leadboard extends Component {
         <ul>
           {userScore.map((user) => (
             <li key={user.id}>
-              {user.name}
+              <Usercard user={user}/>
             </li>
           ))}
         </ul>
