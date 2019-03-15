@@ -4,6 +4,7 @@ import '../utils/App.css'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import QuestionCardTiny from './QuestionCardTiny'
+import { Link } from 'react-router-dom'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -31,17 +32,21 @@ class Dashboard extends Component {
           ? answeredIds &&
             <ListGroup variant="flush">
                {answeredIds.map((id) => (
-                  <ListGroup.Item className='center' key={id}>
-                    <QuestionCardTiny qid={id}/>
-                  </ListGroup.Item>
+                  <Link to={`/questions/${id}`}>
+                    <ListGroup.Item className='center' key={id}>
+                      <QuestionCardTiny qid={id}/>
+                    </ListGroup.Item>
+                  </Link>
                 ))}
             </ListGroup>
           : unAnsweredIds &&
             <ListGroup variant="flush">
                {unAnsweredIds.map((id) => (
-                  <ListGroup.Item className='center' key={id}>
-                    <QuestionCardTiny qid={id}/>
-                  </ListGroup.Item>
+                  <Link to={`/questions/${id}`}>
+                    <ListGroup.Item className='center' key={id}>
+                      <QuestionCardTiny qid={id}/>
+                    </ListGroup.Item>
+                  </Link>
                 ))}
             </ListGroup>
           }
