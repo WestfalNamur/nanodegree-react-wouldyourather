@@ -14,7 +14,7 @@ export function handleInitialData () {
       .then(({ users, questions }) => {
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
-        dispatch(setAuthedUser('tylermcginnis'))
+        dispatch(setAuthedUser(null))
         dispatch(hideLoading())
       })
   }

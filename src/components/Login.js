@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import '../utils/App.css'
 
 class Login extends Component {
   constructor(props) {
@@ -24,20 +25,15 @@ class Login extends Component {
     return (
       <form onSubmit={this.handleLogin}>
         <lable>
-          Select user:
-          <select 
-            value={this.state.value} 
-            onChange={this.handleChange} 
-            >
+          Select a user: 
+          <select value={this.state.selectedUser} onChange={this.handleChange}>
+            <option value='' disabled>choose a user</option>
             {users.map((user) => (
               <option key={user.id} value={user.id}>{user.name}</option>
             ))}
           </select>
         </lable>
-        <button 
-          type="button" 
-          disabled={!this.state.selectedUser} 
-          onClick={this.handleLogin}
+        <button type="button" disabled={!this.state.selectedUser} onClick={this.handleLogin}
         >Login</button>
       </form>
     )

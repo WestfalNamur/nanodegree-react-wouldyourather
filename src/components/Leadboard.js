@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Usercard from './Usercard'
+import ListGroup from 'react-bootstrap/ListGroup'
+
 
 class Leadboard extends Component {
   render() {
@@ -9,13 +11,13 @@ class Leadboard extends Component {
 
     return (
       <div className='Leadboard'>
-        <ul>
+        <ListGroup variant="flush">
           {userScore.map((user) => (
             <li key={user.id}>
               <Usercard user={user}/>
             </li>
           ))}
-        </ul>
+        </ListGroup>
       </div>
     )
   }
